@@ -1,0 +1,76 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+ 
+  <groupId>be.re</groupId>
+  <artifactId>css2xslfo</artifactId>
+  <version>1.0-Release</version>
+ 
+  <name>css2xslfo</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.re.be/css2xslfo/index.xhtml</url>
+ 
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+ 
+  <dependencies>
+	<dependency>
+				<groupId>commons-net</groupId>
+				<artifactId>commons-net</artifactId>
+				<version>1.4.1</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.ant</groupId>
+				<artifactId>ant-commons-net</artifactId>
+				<version>1.8.1</version>
+				</dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+ 
+  <build>    
+	<plugins>
+		<plugin>			
+			<artifactId>maven-antrun-plugin</artifactId>
+			<version>3.0.0</version>
+			<executions>
+				<execution>
+					<id>zip-artifacts</id>
+					<phase>package</phase>
+					<goals>
+						<goal>run</goal>
+					</goals>
+					<configuration>
+						<target>
+							<ant antfile="${basedir}/build.xml">
+								<target name="all"/>
+							</ant>
+					</target>
+					</configuration>
+				</execution>
+			</executions>
+			<dependencies>
+			<dependency>
+				<groupId>commons-net</groupId>
+				<artifactId>commons-net</artifactId>
+				<version>1.4.1</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.ant</groupId>
+				<artifactId>ant-commons-net</artifactId>
+				<version>1.8.1</version>
+				</dependency>
+			</dependencies>
+		</plugin>
+	</plugins>
+	<pluginManagement>
+    </pluginManagement>
+  </build>
+</project>
